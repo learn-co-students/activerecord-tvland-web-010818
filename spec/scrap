@@ -1,0 +1,62 @@
+
+
+class Actor < ActiveRecord::Base
+
+has_many :characters
+has_many :shows, through::characters
+end
+
+class CreateActors < ActiveRecord::Migration
+
+  def change
+    CREATE_TABLE :actors do |t|
+      t.string :first_name
+      t.string :last_name
+    end
+  end
+end
+
+
+CHARRR
+
+
+
+class AddDetailsToCharacters < ActiveRecord::Migration
+
+  def change
+    add_coloumn :characters, :catchphrase, :string
+  end
+end
+
+
+class Character < ActiveRecord::Base
+belongs_to :actor
+belongs_to :show
+
+class CreateCharacters < ActiveRecord::Migration
+  def change
+    CREATE_TABLE :characters do |t|
+      t.string :name
+      t.integer :show_id
+      end
+    emd
+  end
+
+
+end
+
+
+SHHOOOWW
+
+class Show < ActiveRecord::Base
+has_many :characters
+has_many :actors, through::characters
+end
+
+classCreateShows < ActiveRecord::Migration
+
+  def change
+    CREATE_TABLE :shows do |t|
+      t.string :name
+      t.string :genre
+      end
