@@ -19,3 +19,9 @@ namespace :db do
     File.delete(connection_details.fetch('database')) if File.exist?(connection_details.fetch('database'))
   end
 end
+
+desc "enters pry"
+task :console do
+  Pry.start
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
